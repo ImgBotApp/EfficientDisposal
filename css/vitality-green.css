@@ -118,7 +118,7 @@ h6 {
       background-color: transparent; }
       #mainNav.navbar-shrink {
         padding: 5px 0;
-        background-color: #222; }
+        background-color: #083b66; }
       #mainNav .navbar-brand {
         font-size: 26px;
         line-height: 50px; }
@@ -193,8 +193,8 @@ header.masthead {
       padding-top: 0;
       padding-bottom: 0; }
       header.masthead .masthead-img {
-        max-width: 500px;
-        max-height: 500px; }
+        max-width: 250px;
+        max-height: 250px; }
       header.masthead .masthead-title {
         font-size: 5rem;
         line-height: 5rem; }
