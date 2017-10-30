@@ -1,14 +1,30 @@
 <?php
+require_once('recaptchalib.php');
+$privatekey = "6LeTXzYUAAAAAC9Sg7n2yrGlAs3wxMs76_fRctGU";
+
+
 // Check for empty fields
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
    empty($_POST['phone'])     ||
    empty($_POST['message'])   ||
+   empty($_POST['g-recaptcha-response'])   ||
    !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
    {
    echo "No arguments Provided!";
    return false;
    }
+
+$resp = recaptcha_check_answer ($privatekey,
+                                  $_SERVER["REMOTE_ADDR"],
+                                  $_POST["recaptcha_challenge_field"],
+                                  $_POST["recaptcha_response_field"]);
+
+  if (!$resp->is_valid) {
+      // What happens when the CAPTCHA was entered incorrectly
+      die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
+           "(reCAPTCHA said: " . $resp->error . ")");
+    }
 
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));

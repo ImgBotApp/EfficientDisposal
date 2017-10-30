@@ -28,6 +28,14 @@
 
     <link href="css/vitality-green.css" rel="stylesheet" type="text/css">
 
+    <!-- Recaptcha Script -->
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+       function onSubmit(token) {
+         document.getElementById("contactForm").submit();
+       }
+    </script>
 
   </head>
 
@@ -289,9 +297,16 @@
               <div id="success"></div>
               <div class="row">
                 <div class="form-group col-12">
-                  <button type="submit" class="btn btn-secondary">Send</button>
+                  <button
+                    type="submit"
+                    class="g-recaptcha btn btn-secondary"
+                    data-sitekey="6LeTXzYUAAAAADZgKR2azL2KZGVjLFWrAK5Xfa6X"
+                    data-callback="onSubmit">
+                    Submit
+                  </button>
                 </div>
               </div>
+
             </form>
           </div>
         </div>
